@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -39,7 +40,6 @@ public class Home extends AppCompatActivity {
             FirebaseDatabase.getInstance().getReference().child("Users")
                     .addListenerForSingleValueEvent(new ValueEventListener() {
 
-
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             //TODO: make UI run in an infinite loop to display multiple user profiles w RecyclerView
@@ -59,9 +59,7 @@ public class Home extends AppCompatActivity {
 
                                     Intent intent = new Intent(Home.this, private_profile.class);
                                     startActivity(intent);
-
                                 }
-
                             }
 
                             if(!found){
@@ -75,7 +73,6 @@ public class Home extends AppCompatActivity {
                         }
                     });
 
-
         });
 
 
@@ -85,8 +82,6 @@ public class Home extends AppCompatActivity {
         btn1.setOnClickListener(v -> {
             Intent intent = new Intent(this, feed.class);
             startActivity(intent);
-
-
         });
 
         ImageButton user_profile = findViewById(R.id.userProfileButton);
@@ -100,11 +95,7 @@ public class Home extends AppCompatActivity {
             Intent intent = new Intent(this, notifications.class);
             startActivity(intent);
         });
-//        ImageButton home = findViewById(R.id.button6);
-//        home.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, Home.class);
-//            startActivity(intent);
-//        });
+
         ImageButton match = findViewById(R.id.matchButton);
         match.setOnClickListener(v -> {
             Intent intent = new Intent(this, Match2.class);
@@ -129,6 +120,8 @@ public class Home extends AppCompatActivity {
     }
 
 
-
-
+    public void onPostButtonClicked(View view) {
+        Intent intent = new Intent(this, AddPost.class);
+        startActivity(intent);
+    }
 }
