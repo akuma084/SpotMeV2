@@ -24,8 +24,8 @@
 
     <EditText
         android:id="@+id/postDescription"
-        android:layout_width="397dp"
-        android:layout_height="402dp"
+        android:layout_width="304dp"
+        android:layout_height="343dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Write your post"
